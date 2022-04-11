@@ -16,7 +16,7 @@ import time
 
 # path and host are used to construct the collection URL
 # Example:
-# https://collect.observeinc.com/v1/observations/my_path?host=my-laptop
+# https://collect.observeinc.com/v1/http/my_path?host=my-laptop
 path = "my-ps-top-cpu"
 host = "my-laptop"
 
@@ -39,7 +39,7 @@ ingest_token = "my-token"
 sleep_time = 10
 
 # The Observe collection endpoint - do not change
-observe_url = "https://collect.observeinc.com/v1/observations"
+observe_url = "https://collect.observeinc.com/v1/http"
 
 
 # Main loop
