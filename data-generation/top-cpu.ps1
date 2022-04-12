@@ -10,7 +10,7 @@
 
 # path and host are used to construct the collection URL
 # Example:
-# https://collect.observeinc.com/v1/observations/my_path?host=my-laptop
+# https://collect.observeinc.com/v1/http/my_path?host=my-laptop
 $path = "my-ps-top-cpu"
 $win_host = "my-win10"
 
@@ -26,7 +26,7 @@ $customer_id = "123"
 $sleep_time = 10
 
 # The Observe collection endpoint - do not change
-$observe_url = "https://collect.observeinc.com/v1/observations"
+$observe_url = "https://collect.observeinc.com/v1/http"
 
 
 $auth_header = "Bearer " + $customer_id + " " + $ingest_token
