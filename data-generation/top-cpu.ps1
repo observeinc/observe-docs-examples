@@ -1,4 +1,4 @@
-# Sample data generating script for the 
+# Sample data generating script for the
 # Ingesting and Exploring Data with Observe tutorial
 #
 # This code is provided as-is for educational purposes.
@@ -8,15 +8,15 @@
 #####
 # Update the following values:
 
-# path and host are used to construct the collection URL
+# customer_id, path, and host are used to construct the collection URL
 # Example:
-# https://collect.observeinc.com/v1/http/my_path?host=my-laptop
+# https://<customer_id>.collect.observeinc.com/v1/http/<my_path>?host=<my_host>
+$customer_id = "101"
 $path = "my-ps-top-cpu"
 $win_host = "my-win10"
 
-# customer_id and ingest_token are sent in an Authorization header
-$ingest_token = "12345"
-$customer_id = "123"
+# ingest_token are sent in an Authorization header
+$ingest_token = "my-token"
 
 # End required updates
 #####
@@ -26,10 +26,10 @@ $customer_id = "123"
 $sleep_time = 10
 
 # The Observe collection endpoint - do not change
-$observe_url = "https://collect.observeinc.com/v1/http"
+$observe_url = "https://" + $customer_id + ".collect.observeinc.com/v1/http"
 
 
-$auth_header = "Bearer " + $customer_id + " " + $ingest_token
+$auth_header = "Bearer " + $ingest_token
 $header = @{
  "Authorization"= $auth_header
  "Content-Type"="application/json"
