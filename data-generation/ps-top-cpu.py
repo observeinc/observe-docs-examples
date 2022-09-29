@@ -12,14 +12,14 @@ import urllib.request
 #####
 # Update the following values:
 
-# path and host are used to construct the collection URL
+# customer_id, path, and host are used to construct the collection URL
 # Example:
-# https://collect.observeinc.com/v1/http/<my_path>?host=<my_host>
+# https://<customer_id>.collect.observeinc.com/v1/http/<my_path>?host=<my_host>
+customer_id = "101"
 my_path = "my-ps-top-cpu"
 my_host = "my-observe-laptop"
 
-# customer_id and ingest_token are sent in an Authorization header
-customer_id = "101"
+# ingest_token is sent in an Authorization header
 ingest_token = "my-token"
 
 # The command to run: get the process using the most cpu
@@ -37,7 +37,7 @@ ingest_token = "my-token"
 sleep_time_sec = 10
 
 # The Observe collection endpoint - do not change
-observe_url = "https://collect.observeinc.com/v1/http"
+observe_url = "https://{}.collect.observeinc.com/v1/http".format(customer_id)
 
 
 # Main loop
@@ -62,8 +62,7 @@ while True:
         method="POST",
         data=bytes(payload.encode("utf-8")))
 
-    req.add_header("Authorization",
-                   "Bearer " + customer_id + " " + ingest_token)
+    req.add_header("Authorization", "Bearer " + ingest_token)
     req.add_header("Content-type", "application/json")
 
     # Send the request
